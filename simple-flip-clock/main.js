@@ -1,12 +1,15 @@
 function updateClock() {
   const now = new Date();
-  const hours = String(now.getHours()).padStart(2, '0');
-  const minutes = String(now.getMinutes()).padStart(2, '0');
-  const seconds = String(now.getSeconds()).padStart(2, '0');
+  updateUnit('hours', now.getHours());
+  updateUnit('minutes', now.getMinutes());
+  updateUnit('seconds', now.getSeconds());
+}
 
-  document.getElementById('hours').textContent = hours;
-  document.getElementById('minutes').textContent = minutes;
-  document.getElementById('seconds').textContent = seconds;
+function updateUnit(unit, value) {
+  value = String(value).padStart(2, '0');
+  const flipCard = document.querySelector(`#${unit} .flip-card`);
+  flipCard.querySelector('.top').textContent = value;
+  flipCard.querySelector('.bottom').textContent = value;
 }
 
 setInterval(updateClock, 1000);
