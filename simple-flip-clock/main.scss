@@ -1,7 +1,11 @@
-body {
+@mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body {
+  @include flex-center;
   height: 100vh;
   margin: 0;
   background: #383838;
@@ -9,9 +13,7 @@ body {
 }
 
 .flip-clock {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   background-color: rgba(255, 255, 255, 0.05);
   padding: 20px;
   border-radius: 15px;
@@ -21,27 +23,28 @@ body {
 .flip-unit {
   margin: 0 10px;
   position: relative;
-}
 
-.flip-unit::after {
-  content: ':';
-  position: absolute;
-  right: -15px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 60px;
-  color: #ffffff;
-}
+  &::after {
+    content: ':';
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 60px;
+    color: #ffffff;
+  }
 
-.flip-unit:last-child::after {
-  display: none;
+  &:last-child::after {
+    display: none;
+  }
 }
 
 .flip-card {
   width: 100px;
   height: 100px;
   border-radius: 5px;
-  perspective: 400px;
+  position: relative;
+  overflow: hidden;
 }
 
 .top, .bottom {
@@ -51,19 +54,19 @@ body {
   background: linear-gradient(145deg, #2c2c2c, #3a3a3a);
   color: #ffffff;
   font-size: 60px;
-  text-align: center;
-  line-height: 100px;
+  @include flex-center;
   overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
 .top {
   border-radius: 5px 5px 0 0;
   border-bottom: 1px solid #666;
+  top: 0;
 }
 
 .bottom {
-  top: 50%;
   border-radius: 0 0 5px 5px;
   border-top: 1px solid #666;
-  line-height: 0;
+  bottom: 0;
 }
