@@ -25,7 +25,7 @@ body {
 }
 .flip-clock::before, .flip-clock::after {
   content: ":";
-  font-size: 60px;
+  font-size: 37px;
   color: #ffffff;
   margin: 0 10px;
   position: absolute;
@@ -33,11 +33,11 @@ body {
 }
 .flip-clock::before {
   left: 50%;
-  transform: translate(-78px, -56%);
+  transform: translate(-74px, -56%);
 }
 .flip-clock::after {
   right: 50%;
-  transform: translate(78px, -56%);
+  transform: translate(74px, -56%);
 }
 
 .flip-unit {
