@@ -1,36 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const toggleButton = document.getElementById('theme-toggle');
-  const toggleIcon = toggleButton.querySelector('.toggle-icon');
+// Função para detectar o tema padrão do sistema operacional
+function getSystemDefaultTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
 
-  const applyTheme = (theme) => {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-  
-      toggleIcon.textContent = theme === 'dark' ? '🌜' : '🌞';
-  };
-  
-  const detectSystemTheme = () => {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      return prefersDark ? 'dark' : 'light';
-  };
+// Função para aplicar o tema
+function applyTheme(theme) {
+    document.body.classList.toggle('dark-mode', theme === 'dark');
+    document.getElementById('toggle').checked = theme === 'dark';
+}
 
-  const initTheme = () => {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-          applyTheme(savedTheme);
-      } else {
-          const systemTheme = detectSystemTheme();
-          applyTheme(systemTheme);
-      }
-  };
+// Carregar o tema ao iniciar
+(function () {
+    let theme = localStorage.getItem('theme');
 
-  const toggleTheme = () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      applyTheme(newTheme);
-  };
+    if (!theme) {
+        theme = getSystemDefaultTheme();
+        localStorage.setItem('theme', theme);
+    }
 
-  initTheme();
+    applyTheme(theme);
+})();
 
-  toggleButton.addEventListener('click', toggleTheme);
+// Alterar o tema ao clicar no toggle
+document.getElementById('toggle').addEventListener('change', function () {
+    let theme = this.checked ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    applyTheme(theme);
 });
