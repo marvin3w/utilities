@@ -1,0 +1,14 @@
+/*!*********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./clock-dots-board/main.scss ***!
+  \*********************************************************************************************************************/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.clock {
+  font-size: 50px;
+  font-family: Arial, sans-serif;
+}
