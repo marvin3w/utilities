@@ -1,4 +1,3 @@
-
 const digitPatterns = {
   '0': [
       [1, 1, 1],
@@ -132,4 +131,3 @@ document.addEventListener('DOMContentLoaded', () => {
   updateClock();
   setInterval(updateClock, 1000);
 });
-
