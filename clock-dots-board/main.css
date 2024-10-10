@@ -1,0 +1,40 @@
+/*!*********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./clock-dots-board/main.scss ***!
+  \*********************************************************************************************************************/
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #222;
+  margin: 0;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+}
+
+.digit {
+  display: grid;
+  grid-template-columns: repeat(3, 20px);
+  grid-template-rows: repeat(5, 20px);
+  grid-gap: 5px;
+  margin: 0 5px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: #444;
+  border-radius: 50%;
+}
+
+.on {
+  background-color: #0f0;
+}
+
+.separator {
+  font-size: 80px;
+  color: #0f0;
+}

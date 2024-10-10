@@ -16,7 +16,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname),
-    filename: '[name].js', // Isso não será usado, mas é necessário para o Webpack
   },
   module: {
     rules: [
