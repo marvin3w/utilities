@@ -193,13 +193,13 @@ function animateEntrance() {
         for (let i = 0; i < 7; i++) {
             setTimeout(() => turnOffInactiveDots(i), i * 80);
         }
-    }, 7 * 100 + 200); 
+    }, 7 * 80);
 
     setTimeout(() => {
         resetFrozenTime();
         updateClock();
         setInterval(updateClock, 1000);
-    }, 14 * 100 + 1000); 
+    }, 10 * 100 + 500);
 }
 
 function updateClock() {

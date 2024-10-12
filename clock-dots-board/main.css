@@ -35,9 +35,10 @@ body {
 }
 
 .separator {
-  font-size: 8vmin;
+  font-size: 14vmin;
   color: #0f0;
-  margin: 0 1vmin;
+  margin: 0 0.2vmin;
+  margin-top: -2.7vmin;
 }
 
 @keyframes blink {
