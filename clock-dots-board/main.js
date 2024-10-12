@@ -132,6 +132,90 @@ function updateClock() {
     updateDigit('second-ones', s[1]);
 }
 
+function getCurrentTime() {
+    const now = new Date();
+    return {
+        h: String(now.getHours()).padStart(2, '0'),
+        m: String(now.getMinutes()).padStart(2, '0'),
+        s: String(now.getSeconds()).padStart(2, '0')
+    };
+}
+
+let frozenTime;
+
+function getFrozenTime() {
+    if (!frozenTime) {
+        frozenTime = getCurrentTime();
+    }
+    return frozenTime;
+}
+
+function resetFrozenTime() {
+    frozenTime = null;
+}
+
+function turnOnRow(row) {
+    const digits = document.querySelectorAll('.digit');
+    digits.forEach(digit => {
+        const dots = digit.querySelectorAll('.dot');
+        for (let i = row * 5; i < (row + 1) * 5; i++) {
+            dots[i].classList.add('on', 'animating');
+        }
+    });
+}
+
+function turnOffInactiveDots(row) {
+    const time = getFrozenTime();
+    const timeString = time.h + time.m + time.s;
+    const digitElements = document.querySelectorAll('.digit');
+    
+    digitElements.forEach((digit, index) => {
+        const dots = digit.querySelectorAll('.dot');
+        const digitValue = timeString[index];
+        const pattern = digits[digitValue];
+        
+        for (let i = row * 5; i < (row + 1) * 5; i++) {
+            if (pattern[row][i % 5] === '0') {
+                dots[i].classList.remove('on');
+            }
+        }
+    });
+}
+
+function animateEntrance() {
+    resetFrozenTime(); 
+
+    for (let i = 0; i < 7; i++) {
+        setTimeout(() => turnOnRow(i), i * 80);
+    }
+
+    setTimeout(() => {
+        for (let i = 0; i < 7; i++) {
+            setTimeout(() => turnOffInactiveDots(i), i * 80);
+        }
+    }, 7 * 100 + 200); 
+
+    setTimeout(() => {
+        resetFrozenTime();
+        updateClock();
+        setInterval(updateClock, 1000);
+    }, 14 * 100 + 1000); 
+}
+
+function updateClock() {
+    const time = getCurrentTime();
+    const h = time.h;
+    const m = time.m;
+    const s = time.s;
+
+    updateDigit('hour-tens', h[0]);
+    updateDigit('hour-ones', h[1]);
+    updateDigit('minute-tens', m[0]);
+    updateDigit('minute-ones', m[1]);
+    updateDigit('second-tens', s[0]);
+    updateDigit('second-ones', s[1]);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const clockElement = document.querySelector('.clock');
     clockElement.innerHTML = '';
@@ -148,6 +232,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    updateClock();
-    setInterval(updateClock, 1000);
+    animateEntrance();
 });
