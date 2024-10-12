@@ -13,18 +13,19 @@ body {
 .clock {
   display: flex;
   align-items: center;
+  padding: 20px;
 }
 
 .digit {
   display: grid;
-  grid-template-columns: repeat(5, 10px);
-  grid-template-rows: repeat(7, 10px);
-  grid-gap: 5px;
-  margin: 0 5px;
+  grid-template-columns: repeat(5, 1.7vmin);
+  grid-template-rows: repeat(7, 1.7vmin);
+  grid-gap: 0.8vmin;
+  margin: 0 1vmin;
 }
 .digit .dot {
-  width: 10px;
-  height: 10px;
+  width: 1.7vmin;
+  height: 1.7vmin;
   background-color: #444;
   border-radius: 50%;
   transition: background-color 0.3s;
@@ -34,7 +35,7 @@ body {
 }
 
 .separator {
-  font-size: 50px;
+  font-size: 8vmin;
   color: #0f0;
-  margin: 0 5px;
+  margin: 0 1vmin;
 }
