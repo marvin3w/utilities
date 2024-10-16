@@ -2,18 +2,24 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./ANCII-fake-animate/main.scss ***!
   \***********************************************************************************************************************/
 body {
+  background: rgb(6, 0, 15);
+  overflow: hidden;
+}
+
+p {
+  font-size: 1rem;
+  background: url(https://i.giphy.com/6FAecu2gQld3VbJqZQ.webp);
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.centered_container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
-  background: #464343;
-  font-weight: 700;
-}
-
-h1 {
-  font-size: 64px;
-  font-weight: 700px;
-  letter-spacing: 2px;
-  color: rgb(255, 253, 240);
+  width: 100vw;
+  overflow: hidden;
 }
