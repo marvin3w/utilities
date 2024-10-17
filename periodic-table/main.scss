@@ -16,6 +16,26 @@ $element-colors: (
     "actinide": #ff6666
 );
 
+@each $classification, $color in $element-colors {
+    .element-card[data-classification="#{$classification}"] .card-front {
+        background-color: $color;  // Mantém a cor original no fundo do card
+
+        // Define uma versão escurecida da cor original para a fonte
+        color: darken($color, 70%);
+    }
+
+    // Se houver textos em outras tags dentro do card (como títulos ou spans), você pode ajustar assim:
+    .element-card[data-classification="#{$classification}"] .card-front .symbol,
+    .element-card[data-classification="#{$classification}"] .card-front .element-name,
+    .element-card[data-classification="#{$classification}"] .card-front .atomic-number {
+        color: darken($color, 70%);  // Define a cor do texto mais escura
+    }
+
+    .element-card[data-classification="#{$classification}"] .card-back table tr td:first-child{
+      color: darken($color, 20%);
+    }
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #282c34;
@@ -84,7 +104,7 @@ body {
       background-color: #333;
       transform: rotateY(180deg);
       justify-content: flex-start; 
-      padding: 20px;
+      padding: 5px;
       font-size: 12px;
       overflow: hidden;
     }
@@ -116,21 +136,21 @@ body {
     
 
     tr {
-      margin-bottom: 5px;
+      margin-bottom: 2px;
       td {
         vertical-align: middle; 
       }
       td:first-child {
         font-weight: bold;
-        padding:3px;
+        padding: 1px 3px;
         font-size: 6px;
-        text-align:right;
-        color: #ffcc99;
+        line-height: 1.15;
+        text-align:right;        
       }
 
       td:last-child {
         font-weight: normal;
-        font-size: 9px;
+        font-size: 8px;
         color: #fff;
       }
     }
