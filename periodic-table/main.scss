@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+
+$element-colors: (
+    "alkali-metal": #ff6666,
+    "alkaline-earth-metal": #ffcc99,
+    "transition-metal": #ffccff,
+    "post-transition-metal": #ccccff,
+    "metalloid": #99cc99,
+    "nonmetal": #99ffff,
+    "halogen": #ff99cc,
+    "noble-gas": #ffccff,
+    "lanthanide": #ffb366,
+    "actinide": #ff6666
+);
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #282c34;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 10px;
+    padding: 20px;
+    margin: 40px; 
+}
+
+.element-card {
+    position: relative;
+    width: 100px;
+    height: 130px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+    transform: scale(var(--scale, 1)) rotateY(var(--rotateY, 0deg)) translate(var(--x, 0), var(--y, 0)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+
+    &.flip {
+        --scale: 2;
+        --rotateY: 180deg;
+    }
+
+    &:not(.flip) {
+      --scale: 1;
+      --rotateY: 0deg;
+    }
+
+    &.magnetic {
+    
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      transition: transform 0.6s;
+    
+      background-color: map-get($element-colors, attr(data-classification));
+    }
+
+    .card-front {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-back {
+      background-color: #333;
+      transform: rotateY(180deg);
+      justify-content: flex-start; 
+      padding: 20px;
+      font-size: 12px;
+      overflow: hidden;
+    }
+
+    .atomic-number {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 12px;
+    }
+
+    .symbol {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .element-name {
+      position: absolute;
+      bottom: 5px;
+      font-size: 12px;
+    }
+}
+
+.card-back {
+  table {
+    width: 100%;
+    text-align: left;
+    border-spacing: 5px;
+    
+
+    tr {
+      margin-bottom: 5px;
+      td {
+        vertical-align: middle; 
+      }
+      td:first-child {
+        font-weight: bold;
+        padding:3px;
+        font-size: 6px;
+        text-align:right;
+        color: #ffcc99;
+      }
+
+      td:last-child {
+        font-weight: normal;
+        font-size: 9px;
+        color: #fff;
+      }
+    }
+  }
+}
