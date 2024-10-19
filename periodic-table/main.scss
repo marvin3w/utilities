@@ -1,3 +1,6 @@
+@use "sass:map";
+@use 'sass:color';
+
 * {
   box-sizing: border-box;
 }
@@ -17,23 +20,20 @@ $element-colors: (
 );
 
 @each $classification, $color in $element-colors {
-    .element-card[data-classification="#{$classification}"] .card-front {
-        background-color: $color;  // Mantém a cor original no fundo do card
+  .element-card[data-classification="#{$classification}"] .card-front {
+    background-color: $color;
+    color: color.adjust($color, $lightness: -70%);
+  }
 
-        // Define uma versão escurecida da cor original para a fonte
-        color: darken($color, 70%);
-    }
+  .element-card[data-classification="#{$classification}"] .card-front .symbol,
+  .element-card[data-classification="#{$classification}"] .card-front .element-name,
+  .element-card[data-classification="#{$classification}"] .card-front .atomic-number {
+    color: color.adjust($color, $lightness: -70%);
+  }
 
-    // Se houver textos em outras tags dentro do card (como títulos ou spans), você pode ajustar assim:
-    .element-card[data-classification="#{$classification}"] .card-front .symbol,
-    .element-card[data-classification="#{$classification}"] .card-front .element-name,
-    .element-card[data-classification="#{$classification}"] .card-front .atomic-number {
-        color: darken($color, 70%);  // Define a cor do texto mais escura
-    }
-
-    .element-card[data-classification="#{$classification}"] .card-back table tr td:first-child{
-      color: darken($color, 20%);
-    }
+  .element-card[data-classification="#{$classification}"] .card-back table tr td:first-child {
+    color: color.adjust($color, $lightness: -20%);
+  }
 }
 
 body {
