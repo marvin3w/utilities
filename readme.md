@@ -71,7 +71,7 @@ Feel free to reach out to me via email or connect with me on social media:
 
 **Email**: contato@marcusoliveira.me
 
-[![enter image description here](https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://github.com/marvin3w/) [![enter image description here](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/marvin3w/) [![enter image description here](https://img.shields.io/badge/CodePen-000000.svg?style=for-the-badge&logo=CodePen&logoColor=white)](https://codepen.io/marvin3w/)
+[![enter image description here](https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=for-the-badge&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/marcus-de-oliveira/) [![enter image description here](https://img.shields.io/badge/GitHub-181717.svg?style=for-the-badge&logo=GitHub&logoColor=white)](https://github.com/marvin3w/) [![enter image description here](https://img.shields.io/badge/CodePen-000000.svg?style=for-the-badge&logo=CodePen&logoColor=white)](https://codepen.io/marvin3w/)
 
 ----------
 

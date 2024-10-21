@@ -14,9 +14,9 @@ $element-colors: (
     "metalloid": #99cc99,
     "nonmetal": #99ffff,
     "halogen": #ff99cc,
-    "noble-gas": #ffccff,
-    "lanthanide": #ffb366,
-    "actinide": #ff6666
+    "noble-gas": #ffadbb,
+    "lanthanide": #ffcf66,
+    "actinide": #ffb366
 );
 
 @each $classification, $color in $element-colors {
@@ -25,50 +25,58 @@ $element-colors: (
     color: color.adjust($color, $lightness: -70%);
   }
 
-  .element-card[data-classification="#{$classification}"] .card-front .symbol,
   .element-card[data-classification="#{$classification}"] .card-front .element-name,
-  .element-card[data-classification="#{$classification}"] .card-front .atomic-number {
+  .element-card[data-classification="#{$classification}"] .card-front .symbol {
     color: color.adjust($color, $lightness: -70%);
+  }
+  
+  .element-card[data-classification="#{$classification}"] .card-front .atomic-number {
+    color: $color;
+    background-color: color.adjust($color, $lightness: -55%);
   }
 
   .element-card[data-classification="#{$classification}"] .card-back table tr td:first-child {
-    color: color.adjust($color, $lightness: -20%);
+    color: color.adjust($color, $lightness: -10%);
   }
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #282c34;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
 .periodic-table {
-    display: grid;
-    grid-template-columns: repeat(18, 1fr);
-    gap: 10px;
-    padding: 20px;
-    margin: 40px; 
+  display: grid;
+  grid-template-columns: repeat(18, 1fr);
+  grid-template-rows: repeat(10, auto); // Aumentamos para 10 linhas
+  gap: 10px;
+  padding: 20px;
+  margin: 40px;
 }
+
 
 .element-card {
     position: relative;
-    width: 100px;
-    height: 130px;
-    perspective: 1000px;
+    width: 75px;
+    height: 100px;
+    perspective: 200px;
     transform-style: preserve-3d;
     transition: transform 0.3s ease-in-out, scale 0.3s ease-in-out;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.4s ease, z-index 0.3s ease-in-out 0.1s;
+    z-index: 1;
   
     transform: scale(var(--scale, 1)) rotateY(var(--rotateY, 0deg)) translate(var(--x, 0), var(--y, 0)) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
 
     &.flip {
-        --scale: 2;
+        --scale: 2.5;
         --rotateY: 180deg;
+        z-index: 100;
     }
 
     &:not(.flip) {
@@ -86,12 +94,13 @@ body {
       height: 100%;
       border-radius: 10px;
       backface-visibility: hidden;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 10px;
-      transition: transform 0.6s;
+      padding: 7px;
+      transition: transform 0.4s;
     
       background-color: map-get($element-colors, attr(data-classification));
     }
@@ -111,20 +120,28 @@ body {
 
     .atomic-number {
       position: absolute;
-      top: 5px;
-      right: 10px;
-      font-size: 12px;
+      top: 3px;
+      right: 3px;
+      font-size: 11px;
+      font-weight: 400;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50px;
     }
 
     .symbol {
-      font-size: 32px;
-      font-weight: bold;
+      font-size: 44px;
+      font-weight: 600;
     }
 
     .element-name {
       position: absolute;
       bottom: 5px;
-      font-size: 12px;
+      font-size: 11px;
+      font-weight: 500;
     }
 }
 
@@ -132,25 +149,26 @@ body {
   table {
     width: 100%;
     text-align: left;
-    border-spacing: 5px;
+    border-spacing: 2px;
     
 
     tr {
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       td {
         vertical-align: middle; 
       }
       td:first-child {
         font-weight: bold;
-        padding: 1px 3px;
-        font-size: 6px;
+        padding: 1px 2px;
+        font-size: 4.5px;
         line-height: 1.15;
         text-align:right;        
       }
 
       td:last-child {
         font-weight: normal;
-        font-size: 8px;
+        font-size: 6px;
+        line-height: 1.15;
         color: #fff;
       }
     }

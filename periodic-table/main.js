@@ -1,3 +1,5 @@
+let openCard = null;
+
 document.querySelectorAll('.element-card').forEach(card => {
   
   card.addEventListener('click', () => {
@@ -6,8 +8,17 @@ document.querySelectorAll('.element-card').forEach(card => {
       card.style.removeProperty('top');
       card.style.removeProperty('left');
       card.style.removeProperty('transform');
+      openCard = null;
     } else {
+      if (openCard) {
+        openCard.classList.remove('flip');
+        openCard.style.removeProperty('top');
+        openCard.style.removeProperty('left');
+        openCard.style.removeProperty('transform');
+      }
+      
       card.classList.add('flip');
+      openCard = card;
     }
   });
 
