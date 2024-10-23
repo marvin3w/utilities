@@ -24,43 +24,49 @@ const nucleusRadius = 3; // Aumentado o raio do núcleo
 const shellScaleFactor = 4; // Aumentado o fator de escala para as camadas eletrônicas
 
 // Iluminação
-const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+const ambientLight = new THREE.AmbientLight(0x404040, 0.7); // Aumentado a intensidade da luz ambiente
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6); // Reduzida a intensidade da luz direcional
 directionalLight.position.set(50, 50, 50);
 directionalLight.castShadow = true;
+
+// Ajustes para suavizar as sombras
+directionalLight.shadow.mapSize.width = 512;
+directionalLight.shadow.mapSize.height = 512;
+directionalLight.shadow.camera.near = 10;
+directionalLight.shadow.camera.far = 200;
+directionalLight.shadow.bias = -0.001;
+directionalLight.shadow.radius = 4;
+
 scene.add(directionalLight);
 
-// Materiais com texturas
-// const textureLoader = new THREE.TextureLoader();
-
-// const protonMaterial = new THREE.MeshPhongMaterial({
-//   color: 0xffcf66,
-//   map: textureLoader.load('caminho/para/textura_proton.jpg'),
-//   bumpMap: textureLoader.load('caminho/para/textura_proton_bump.jpg'),
-//   bumpScale: 0.05
-// });
-
+// Materiais com opacidade ajustada
 const protonMaterial = new THREE.MeshPhongMaterial({
   color: 0xffcf66,
   emissive: 0xffcfdd,
   emissiveIntensity: 0.1,
-  shininess: 100
+  shininess: 100,
+  transparent: true,
+  opacity: 0.9 // Ajuste este valor para controlar a opacidade geral
 });
 
 const neutronMaterial = new THREE.MeshPhongMaterial({
   color: 0xff6666,
   emissive: 0xff6666,
   emissiveIntensity: 0.1,
-  shininess: 100
+  shininess: 100,
+  transparent: true,
+  opacity: 0.9 // Ajuste este valor para controlar a opacidade geral
 });
 
 const electronMaterial = new THREE.MeshPhongMaterial({
   color: 0x6ab8df,
   emissive: 0x6ab8df,
   emissiveIntensity: 0.2,
-  shininess: 100
+  shininess: 100,
+  transparent: true,
+  opacity: 0.8 // Ajuste este valor para controlar a opacidade geral
 });
 
 const orbitMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 });
