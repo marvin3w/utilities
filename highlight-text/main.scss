@@ -26,6 +26,10 @@ $transition-speed: 1s;
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -89,7 +93,10 @@ body {
 
 .section-header {
   text-align: center;
-  margin-bottom: ($spacing-unit * 7.5);
+  margin-bottom: ($spacing-unit * 2.5);
+  @include desktop {
+    margin-bottom: ($spacing-unit * 7.5);    
+  }
 
   .title-wrapper {
     max-width: 800px;
