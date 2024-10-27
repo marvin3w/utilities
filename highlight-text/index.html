@@ -3,26 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This is Fine</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="preload" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    </noscript>
+
+    <title>Highlight Text</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <section class="animated-content">
         <div class="container">
             <header class="section-header">
-                <div class="title-wrapper">
-                    <h2>Lorem ipsum <strong>dolor sit</strong> amet consectetur</h2>
-                </div>
-                
-                <div class="content-text">
+                <div class="title-wrapper content-text">
+                    <h2><span class="highlight-text">Highlighted</span> Text Animation</h2>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus fugiat quos consectetur accusamus quisquam ullam animi odit ipsa perferendis alias quod laboriosam ducimus quidem nulla dolorem neque, enim perspiciatis corporis.
-                    </p>
+                        The <span class="highlight-text">HighlightAnimation Class</span> was created to add an appealing visual effect to the highlighted text on the page, <span class="highlight-text">respecting the animation duration according to the text size</span>.
+                    </p>                    
                 </div>
 
                 <div class="header-image">
                     <figure>
-                        <img src="https://picsum.photos/800/400" alt="Placeholder image">
+                        <img src="https://picsum.photos/800/250" width="800" height="250" loading="lazy" alt="Placeholder image">
                     </figure>
                 </div>
             </header>
@@ -33,13 +37,13 @@
                     <div class="col text-col">
                         <div class="sticky content-text">
                             <h3>Lorem ipsum dolor</h3>
-                            <p>Consectetur adipiscing elit, <strong>sed do eiusmod</strong> tempor incididunt ut labore.</p>
-                            <p>Ut enim ad minim veniam, <strong>quis nostrud</strong> exercitation ullamco.</p>
+                            <p>Lorem ipsum dolor sit amet <strong class="highlight-text">consectetur adipisicing elit. Natus fugiat quos consectetur accusamus quisquam ullam animi odit ipsa perferendis alias quod laboriosam ducimus quidem nulla dolorem neque, enim perspiciatis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus fugiat quos consectetur accusamus quisquam ullam animi odit ipsa perferendis</strong> alias quod laboriosam ducimus quidem nulla dolorem neque, enim perspiciatis.</p>
+                            <p>Ut <strong class="highlight-text">enim</strong> ad minim veniam, <strong class="highlight-text">quis nostrud</strong> exercitation <strong class="highlight-text">ullamco</strong>.</p>
                         </div>
                     </div>
                     <div class="col image-col">
                         <figure class="sticky">
-                            <img src="https://picsum.photos/600/800" alt="Placeholder image">
+                            <img src="https://picsum.photos/600/850" width="600" height="850" loading="lazy" alt="Placeholder image">
                         </figure>
                     </div>
                 </div>
@@ -49,13 +53,13 @@
                     <div class="col text-col">
                         <div class="sticky content-text">
                             <h3>Sed ut perspiciatis</h3>
-                            <p>Nemo enim ipsam <strong>voluptatem quia</strong> voluptas sit aspernatur.</p>
-                            <p>Neque porro <strong>quisquam est</strong>, qui dolorem ipsum quia.</p>
+                            <p>Lorem ipsum dolor sit amet <strong class="highlight-text">consectetur adipisicing elit. Natus fugiat quos consectetur accusamus quisquam ullam animi odit ipsa perferendis alias quod laboriosam</strong> ducimus quidem nulla dolorem neque, enim perspiciatis.</p>
+                            <p>Neque porro <strong class="highlight-text">quisquam est</strong>, qui dolorem ipsum quia.</p>
                         </div>
                     </div>
                     <div class="col image-col">
                         <figure class="sticky">
-                            <img src="https://picsum.photos/600/800" alt="Placeholder image">
+                            <img src="https://picsum.photos/600/800" width="600" height="800" loading="lazy" alt="Placeholder image">
                         </figure>
                     </div>
                 </div>
@@ -64,5 +68,19 @@
     </section>
 
     <script src="./main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new HighlightAnimation({
+                selector: '.highlight-text',
+                animationClass: 'highlight-animate',
+                duration: 500,
+                delay: 100,
+                charMultiplier: 10,
+                minDuration: 500,
+                threshold: 0.5
+            });
+        });
+    </script>
 </body>
 </html>
