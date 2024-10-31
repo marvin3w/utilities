@@ -1,10 +1,11 @@
 :root {
-  --background-color: #f0f0f3;
+  --background-color: #dde1e7;
   --text-color: #333;
-  --toggle-background: #e0e0e0;
-  --toggle-ball: #fff;
-  --shadow-dark: rgba(255, 255, 255, 0.7);
-  --shadow-light: rgba(0, 0, 0, 0.15);
+  --toggle-background: #d2d8e3;
+  --toggle-ball: #e6ebf1;
+  --shadow-dark: rgba(176, 184, 199, 0.74);
+  --shadow-light: rgba(245, 250, 253, 0.34);
+  --shadow-light-outline: rgba(239, 249, 255, 0.85);
 }
 
 * {
@@ -44,11 +45,16 @@ body {
   background: var(--toggle-background);
   border-radius: 150px;
   cursor: pointer;
+  // box-shadow: 
+  //   inset 4px 4px 8px var(--shadow-light),
+  //   inset -4px -4px 8px var(--shadow-dark),
+  //   4px 4px 8px var(--shadow-light),
+  //   -4px -4px 8px var(--shadow-dark);
   box-shadow: 
-    inset 4px 4px 8px var(--shadow-light),
-    inset -4px -4px 8px var(--shadow-dark),
-    4px 4px 8px var(--shadow-light),
-    -4px -4px 8px var(--shadow-dark);
+    inset -5px -5px 9px var(--shadow-light), 
+    inset 5px 5px 9px var(--shadow-dark),
+    -1px -1px 1px var(--shadow-light-outline) inset, 
+    1px 1px 1px var(--shadow-light-outline) inset;
   transition: all 0.5s ease;
 }
 
@@ -60,11 +66,16 @@ body {
   height: 80%;
   background: var(--toggle-ball);
   border-radius: 50%;
-  box-shadow: 
-    4px 4px 8px var(--shadow-light),
-    -4px -4px 8px var(--shadow-dark),
-    -2px -2px 4px var(--shadow-light) inset,
-    2px 2px 4px var(--shadow-dark) inset;
+  // box-shadow: 
+  //   4px 4px 8px var(--shadow-light),
+  //   -4px -4px 8px var(--shadow-dark),
+  //   -2px -2px 4px var(--shadow-light) inset,
+  //   2px 2px 4px var(--shadow-dark) inset;
+    box-shadow: 
+      -5px -5px 9px var(--shadow-light), 
+      5px 5px 9px var(--shadow-dark),
+      -1px -1px 1px var(--shadow-light-outline) inset, 
+      1px 1px 1px var(--shadow-light-outline) inset;
   transition: transform 0.5s, background 0.5s, box-shadow 0.5s;
 }
 
@@ -77,12 +88,13 @@ body {
 }
 
 .dark-mode {
-  --background-color: #1c1c1c;
+  --background-color: #27272b;
   --text-color: #f0f0f3;
-  --toggle-background: #2e2e2e;
-  --toggle-ball: #1c1c1c;
+  --toggle-background: #1f1f22;
+  --toggle-ball: #2c2c31;
   --shadow-light: rgba(0, 0, 0, 0.7);
-  --shadow-dark: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(20, 18, 18, 0.1);
+  --shadow-light-outline: rgb(55, 63, 69, 0.85);
 }
 
 // Media queries atualizadas para ajustar o tamanho do container
