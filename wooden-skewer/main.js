@@ -18,3 +18,7 @@ const handleButtonClick = (e) => {
 buttons.forEach((btn) => {
   btn.addEventListener("click", handleButtonClick);
 });
+
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
