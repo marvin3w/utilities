@@ -6,11 +6,14 @@
     <title>Toggle Light/Dark Mode</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
+    <meta name="theme-color" content="#dde1e7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#27272b" media="(prefers-color-scheme: dark)">
+    <meta name="description" content="Toggle Light/Dark Mode Demo">
 </head>
 <body>
   <div class="toggle-container">
     <div class="toggle-wrapper">
-      <input type="checkbox" id="toggle" />
+      <input type="checkbox" id="toggle" aria-label="Alternar entre tema claro e escuro" />
       <label for="toggle" class="toggle-label">
         <span class="toggle-ball"></span>
       </label>
