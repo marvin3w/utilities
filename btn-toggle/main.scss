@@ -1,3 +1,37 @@
+@use "sass:math";
+
+// Functions
+@function calculate-aspect-ratio($width, $height) {
+  @return math.div($width, $height);
+}
+
+// Mixins
+@mixin neumorph-shadow-inset($light, $dark, $outline) {
+  box-shadow: 
+    inset -5px -5px 9px $light, 
+    inset 5px 5px 9px $dark,
+    -1px -1px 1px $outline inset, 
+    1px 1px 1px $outline inset;
+}
+
+@mixin neumorph-shadow-outset($light, $dark, $outline) {
+  box-shadow: 
+    -5px -5px 9px $light, 
+    5px 5px 9px $dark,
+    -1px -1px 1px $outline inset, 
+    1px 1px 1px $outline inset;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Variables SCSS
+$toggle-aspect-ratio: calculate-aspect-ratio(2, 1);
+
+// Variables CSS
 :root {
   --background-color: #dde1e7;
   --text-color: #333;
@@ -6,6 +40,8 @@
   --shadow-dark: rgba(176, 184, 199, 0.74);
   --shadow-light: rgba(245, 250, 253, 0.34);
   --shadow-light-outline: rgba(239, 249, 255, 0.85);
+  --transition-duration: 0.3s;
+  --transition-timing: ease-in-out;
 }
 
 * {
@@ -15,76 +51,80 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
-  transition: background-color 0.5s, color 0.5s;
   font-family: 'Arial', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   height: 100vh;
   margin: 0;
 }
 
-.toggle-container {
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 2 / 1;
+.transitions-enabled {
+  transition: 
+    background-color var(--transition-duration) var(--transition-timing),
+    color var(--transition-duration) var(--transition-timing);
 }
 
-.toggle-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+.toggle {
+  &-container {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: $toggle-aspect-ratio;
+  }
 
-.toggle-label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--toggle-background);
-  border-radius: 150px;
-  cursor: pointer;
-  // box-shadow: 
-  //   inset 4px 4px 8px var(--shadow-light),
-  //   inset -4px -4px 8px var(--shadow-dark),
-  //   4px 4px 8px var(--shadow-light),
-  //   -4px -4px 8px var(--shadow-dark);
-  box-shadow: 
-    inset -5px -5px 9px var(--shadow-light), 
-    inset 5px 5px 9px var(--shadow-dark),
-    -1px -1px 1px var(--shadow-light-outline) inset, 
-    1px 1px 1px var(--shadow-light-outline) inset;
-  transition: all 0.5s ease;
-}
+  &-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-.toggle-ball {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 40%;
-  height: 80%;
-  background: var(--toggle-ball);
-  border-radius: 50%;
-  // box-shadow: 
-  //   4px 4px 8px var(--shadow-light),
-  //   -4px -4px 8px var(--shadow-dark),
-  //   -2px -2px 4px var(--shadow-light) inset,
-  //   2px 2px 4px var(--shadow-dark) inset;
-    box-shadow: 
-      -5px -5px 9px var(--shadow-light), 
-      5px 5px 9px var(--shadow-dark),
-      -1px -1px 1px var(--shadow-light-outline) inset, 
-      1px 1px 1px var(--shadow-light-outline) inset;
-  transition: transform 0.5s, background 0.5s, box-shadow 0.5s;
+  &-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--toggle-background);
+    border-radius: 150px;
+    cursor: pointer;
+    @include neumorph-shadow-inset(
+      var(--shadow-light),
+      var(--shadow-dark),
+      var(--shadow-light-outline)
+    );
+    transition: all var(--transition-duration) var(--transition-timing);
+
+    &:focus-within {
+      outline: 2px solid var(--text-color);
+      outline-offset: 2px;
+    }
+  }
+
+  &-ball {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 40%;
+    height: 80%;
+    background: var(--toggle-ball);
+    border-radius: 50%;
+    @include neumorph-shadow-outset(
+      var(--shadow-light),
+      var(--shadow-dark),
+      var(--shadow-light-outline)
+    );
+    transition: 
+      transform var(--transition-duration) var(--transition-timing),
+      background var(--transition-duration) var(--transition-timing),
+      box-shadow var(--transition-duration) var(--transition-timing);
+    will-change: transform;
+  }
 }
 
 #toggle {
   display: none;
-}
 
-#toggle:checked + .toggle-label .toggle-ball {
-  transform: translateX(125%);
+  &:checked + .toggle-label .toggle-ball {
+    transform: translateX(calc(125% - 5%));
+  }
 }
 
 .dark-mode {
@@ -94,35 +134,33 @@ body {
   --toggle-ball: #2c2c31;
   --shadow-light: rgba(0, 0, 0, 0.7);
   --shadow-dark: rgba(20, 18, 18, 0.1);
-  --shadow-light-outline: rgb(55, 63, 69, 0.85);
+  --shadow-light-outline: rgba(55, 63, 69, 0.85);
 }
 
-// Media queries atualizadas para ajustar o tamanho do container
-@media (max-width: 1200px) {
-  .toggle-container {
-    max-width: 250px;
+// Media queries
+$breakpoints: (
+  xl: 1200px,
+  lg: 992px,
+  md: 768px,
+  sm: 576px
+);
+
+@each $breakpoint, $value in $breakpoints {
+  @media (max-width: $value) {
+    .toggle-container {
+      max-width: if($breakpoint == xl, 250px,
+                 if($breakpoint == lg, 220px,
+                 if($breakpoint == md, 200px, 180px)));
+    }
   }
 }
 
-@media (max-width: 992px) {
-  .toggle-container {
-    max-width: 220px;
-  }
-}
-
-@media (max-width: 768px) {
-  .toggle-container {
-    max-width: 200px;
-  }
-}
-
-@media (max-width: 576px) {
-  .toggle-container {
-    max-width: 180px;
-  }
-}
-
-// Regra para contextos menores
 .small-context .toggle-container {
   max-width: 150px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.15s !important;
+  }
 }

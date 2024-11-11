@@ -9,6 +9,15 @@
     <meta name="theme-color" content="#dde1e7" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#27272b" media="(prefers-color-scheme: dark)">
     <meta name="description" content="Toggle Light/Dark Mode Demo">
+    <script>
+        (function() {
+            const theme = localStorage.getItem('user-theme') || 
+                         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark-mode' : '');
+            if (theme) {
+                document.documentElement.classList.add(theme);
+            }
+        })();
+    </script>
 </head>
 <body>
   <div class="toggle-container">
