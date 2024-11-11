@@ -1,0 +1,24 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include flex-center;
+  height: 100vh;
+  margin: 0;
+  background: #464343;
+  font-weight: 700;
+}
+
+h1{
+  font-size: 64px;
+  font-weight: 700px;
+  letter-spacing: 2px;
+  color: rgb(255, 253, 240);
+}
