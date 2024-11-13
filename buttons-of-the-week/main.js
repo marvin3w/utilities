@@ -1,0 +1,1 @@
+console.log('BOTW: main.js loaded');

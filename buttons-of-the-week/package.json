@@ -1,0 +1,17 @@
+{
+  "name": "buttons-of-the-week",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./main.scss -o ./main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.48",
+    "tailwindcss": "^3.4.14"
+  }
+}
