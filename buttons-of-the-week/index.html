@@ -15,7 +15,7 @@
 
     <link rel="stylesheet" href="./main.css">
 </head>
-<body class="font-sans bg-stone-900 text-slate-100 min-h-screen flex flex-col items-center justify-center gap-8">
+<body class="font-sans py-20 bg-stone-800 text-slate-100 min-h-screen flex flex-col items-center justify-center gap-8">
     <h1 class="font-serif !font-bold text-4xl pb-12">Button Of The Week</h1>
 
     <section class="btn-block">
@@ -42,6 +42,27 @@
             </span>
             <span class="absolute bottom-0 right-0 w-full h-12 -mb-1 -mr-1 transition-all duration-200 ease-linear bg-gray-50 rounded-lg group-hover:mb-0 group-hover:mr-0" data-rounded="rounded-lg"></span>
         </button>
+    </section>
+
+    <section class="btn-block">
+        <button class="group relative w-[100px] h-[100px] border-2 border-gray-400 bg-gray-100 rounded-[20px] shadow-[0_-10px_18px_#000000b3,0_-6px_10px_#000000b3,-10px_0_14px_#000000b3,5px_10px_12px_#1412121a] transition-shadow duration-[.35s] ease-in-out cursor-pointer active:shadow-[0_-10px_18px_transparent,0_-6px_10px_transparent,-10px_0_14px_transparent,5px_10px_12px_transparent] touch-manipulation">
+            <div class="relative grid grid-cols-4 grid-rows-2 w-full h-full p-2.5 rounded-[20px] shadow-[inset_0_-4px_0_#dddddd,0_-4px_0_#f4f5f6] transition-shadow duration-[.35s] ease-in-out z-[1] group-active:shadow-[inset_0_-4px_0_transparent,0_-4px_0_transparent]">
+                <div class="relative flex col-start-4 justify-self-end w-4 h-4 translate-y-[-2px] transition-transform duration-[.35s] ease-in-out group-active:translate-y-0">
+                    <svg class="w-4 h-4 fill-gray-400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" style="enable-background:new 0 0 80 80;" xml:space="preserve">
+                        <g>
+                            <path d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16 S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98 c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8 s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72 c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8 h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z"></path>
+                        </g>                        
+                    </svg>
+                </div>
+                <p class="col-span-4 row-start-2 self-end m-0 text-center text-base translate-y-[-2px] transition-transform duration-[.35s] ease-in-out group-active:translate-y-0 bg-clip-text text-transparent bg-gradient-to-r from-gray-500 to-gray-400 shadow-white">Button #4</p>
+            </div>
+        </button>
+    </section>
+
+    <section class="btn-block">
+        <button class="inline-flex items-center justify-center px-4 py-2 h-12 bg-[#FCFCFD] rounded text-[#36395A] text-lg leading-none cursor-pointer overflow-hidden relative text-left no-underline shadow-[0_2px_4px_#000000b3,0_7px_13px_-3px_#000000b3,inset_0_-3px_0_#D6D6E7] transition-all duration-150 ease-in-out select-none touch-manipulation whitespace-nowrap will-change-[box-shadow,transform] hover:shadow-[0_4px_8px_#000000b3,0_7px_13px_-3px_#000000b3,inset_0_-3px_0_#D6D6E7] hover:-translate-y-0.5 focus:shadow-[inset_0_0_0_1.5px_#D6D6E7,0_2px_4px_#000000b3,0_7px_13px_-3px_#000000b3,inset_0_-3px_0_#D6D6E7] active:shadow-[inset_0_3px_7px_#D6D6E7] active:translate-y-0.5" role="button">
+            Button #5
+          </button>
     </section>
 
     <script src="./main.js"></script>
