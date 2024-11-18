@@ -6,19 +6,29 @@ const path = require('path');
 const glob = require('glob');
 
 function compileSCSS() {
-  const scssFiles = glob.sync('./**/*.scss', { ignore: './node_modules/**' });
+  const scssFiles = glob.sync('./**/*.scss', { 
+    ignore: [
+      './node_modules/**',
+      './some-buttons/**'
+    ]
+  });
 
   return gulp.src(scssFiles, { base: './' })
     .pipe(sass().on('error', sass.logError))
     .pipe(cleanCSS())
     .pipe(rename((filePath) => {
-      filePath.extname = '.css'; // Apenas altera a extensão para .css
+      filePath.extname = '.css';
     }))
     .pipe(gulp.dest('./'));
 }
 
 function watchFiles() {
-  gulp.watch('./**/*.scss', { ignored: './node_modules/**' }, compileSCSS);
+  gulp.watch('./**/*.scss', { 
+    ignored: [
+      './node_modules/**',
+      './some-buttons/**'
+    ]
+  }, compileSCSS);
 }
 
 exports.default = gulp.series(compileSCSS, watchFiles);
