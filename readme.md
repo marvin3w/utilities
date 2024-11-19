@@ -53,15 +53,25 @@ cd  utilities
 
 Here is a summary of the utilities included in this repository:
 
--  **Periodic Table**: A visual representation of the periodic table of elements.
+-  **[Periodic Table ↗️](https://marvin3w.github.io/utilities/periodic-table/)**: A visual representation of the periodic table of elements. 
 
--  **Simple Flip Clock**: A digital clock with a flip animation.
+-  **[Simple Flip Clock ↗️](https://marvin3w.github.io/utilities/simple-flip-clock)**: A digital clock with a flip animation.
 
--  **Button Toggle**: A customizable button toggle component.
+-  **[Button Toggle ↗️](https://marvin3w.github.io/utilities/btn-toggle/)**: A customizable button toggle component. 
 
--  **Clock Dots Board**: A clock display using a grid of dots.
+-  **[Clock Dots Board ↗️](https://marvin3w.github.io/utilities/clock-dots-board/)**: A clock display using a grid of dots.
 
--  **ANCII Fake Animate**: An animation utility for ASCII art.
+-  **[ANCII Fake Animate ↗️](https://marvin3w.github.io/utilities/ascii-fake-animate/)**: An animation utility for ASCII art.
+
+-  **[Some Buttons ↗️](https://marvin3w.github.io/utilities/some-buttons/)**: A collection of stylish buttons.
+
+-  **[Atomo three.js ↗️](https://marvin3w.github.io/utilities/atomo-threejs/)**: A 3D atom model created with three.js. 
+
+-  **[Highlight Text ↗️](https://marvin3w.github.io/utilities/highlight-text/)**: A text highlight effect.
+
+-  **[Piano Keyboard ↗️](https://marvin3w.github.io/utilities/piano/)**: A virtual piano keyboard.
+
+-  **[Periodic Table ↗️](https://marvin3w.github.io/utilities/periodic-table/)**: A grid css periodic table of elements with cards effects. (Navigation under development)
 
   
 
