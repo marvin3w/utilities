@@ -160,3 +160,50 @@ body {
     transform: rotateX(0deg);
   }
 }
+
+// disclaimer Codepen
+.disclaimer {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: rgba(255, 255, 255);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 0;
+  opacity: 0.85;
+  
+  p {
+    margin: 0;
+    padding: 12px 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  35% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.heart {
+  display: inline-block;
+  transform-origin: center;
+  animation: heartbeat 1.2s ease-in-out infinite;
+  will-change: transform;
+}

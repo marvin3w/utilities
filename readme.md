@@ -53,25 +53,25 @@ cd  utilities
 
 Here is a summary of the utilities included in this repository:
 
--  **[Periodic Table ↗️](https://marvin3w.github.io/utilities/periodic-table/)**: A visual representation of the periodic table of elements. 
+-  **[Periodic Table ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/periodic-table/)**: A visual representation of the periodic table of elements. 
 
--  **[Simple Flip Clock ↗️](https://marvin3w.github.io/utilities/simple-flip-clock)**: A digital clock with a flip animation.
+-  **[Simple Flip Clock ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/simple-flip-clock)**: A digital clock with a flip animation.
 
--  **[Button Toggle ↗️](https://marvin3w.github.io/utilities/btn-toggle/)**: A customizable button toggle component. 
+-  **[Button Toggle ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/btn-toggle/)**: A customizable button toggle component. 
 
--  **[Clock Dots Board ↗️](https://marvin3w.github.io/utilities/clock-dots-board/)**: A clock display using a grid of dots.
+-  **[Clock Dots Board ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/clock-dots-board/)**: A clock display using a grid of dots.
 
--  **[ANCII Fake Animate ↗️](https://marvin3w.github.io/utilities/ascii-fake-animate/)**: An animation utility for ASCII art.
+-  **[ANCII Fake Animate ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/ascii-fake-animate/)**: An animation utility for ASCII art.
 
--  **[Some Buttons ↗️](https://marvin3w.github.io/utilities/some-buttons/)**: A collection of stylish buttons.
+-  **[Some Buttons ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/some-buttons/)**: A collection of stylish buttons.
 
--  **[Atomo three.js ↗️](https://marvin3w.github.io/utilities/atomo-threejs/)**: A 3D atom model created with three.js. 
+-  **[Atomo three.js ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/atomo-threejs/)**: A 3D atom model created with three.js. 
 
--  **[Highlight Text ↗️](https://marvin3w.github.io/utilities/highlight-text/)**: A text highlight effect.
+-  **[Highlight Text ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/highlight-text/)**: A text highlight effect.
 
--  **[Piano Keyboard ↗️](https://marvin3w.github.io/utilities/piano/)**: A virtual piano keyboard.
+-  **[Piano Keyboard ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/piano)**: A virtual piano keyboard.
 
--  **[Periodic Table ↗️](https://marvin3w.github.io/utilities/periodic-table/)**: A grid css periodic table of elements with cards effects. (Navigation under development)
+-  **[Periodic Table ↗️](https://github.com/marvin3w/utilities/tree/c457e90f7abf18c0c0b31197c51953da9a4ac3d2/periodic-table)**: A grid css periodic table of elements with cards effects. (Navigation under development)
 
   
 
