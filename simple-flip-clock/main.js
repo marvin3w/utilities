@@ -6,16 +6,28 @@ function createFlipCardAnimate(flipCard) {
   return flipCardAnimate;
 }
 
+// Variável para controlar a animação
+let animationFrame;
+
+// Função principal do relógio
 function updateClock() {
   const now = new Date();
   const units = ['hours', 'minutes', 'seconds'];
   
   units.forEach(unit => {
-    const value = now[`get${unit.charAt(0).toUpperCase() + unit.slice(1)}`]()
-      .toString()
-      .padStart(2, '0');
-    updateUnit(unit, value);
+    const value = now[`get${unit.charAt(0).toUpperCase() + unit.slice(1)}`]();
+    updateUnit(unit, value.toString().padStart(2, '0'));
   });
+
+  // Agendar próxima atualização
+  animationFrame = requestAnimationFrame(updateClock);
+}
+
+// Função de limpeza
+function cleanup() {
+  if (animationFrame) {
+    cancelAnimationFrame(animationFrame);
+  }
 }
 
 function updateUnit(unit, value) {
@@ -66,15 +78,16 @@ function updateAfterAnimation(flipCard, flipCardAnimate, value) {
   }, 270);
 }
 
-function initializeClock() {
-  const units = ['hours', 'minutes', 'seconds'];
-  units.forEach(unit => {
-    const unitElement = document.getElementById(unit);
-    const flipCard = unitElement.querySelector('.flip-card');
-    createFlipCardAnimate(flipCard);
-  });
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
   updateClock();
-}
+});
 
-setInterval(updateClock, 1000);
-initializeClock();
+// Limpeza quando a página é fechada/alterada
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    cleanup();
+  } else {
+    updateClock();
+  }
+});
