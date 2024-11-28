@@ -2,7 +2,7 @@
 $color-white: #fff;
 $color-black: #000;
 $color-active-white: #f0f0f0;
-$color-active-black: #252525;
+$color-active-black: #202020;
 
 // Mixins
 @mixin flex-center {
@@ -97,6 +97,23 @@ body {
   background-color: $color-white;
   margin: 0 1px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    pointer-events: none;
+  }
   
   &.active {
     background-color: $color-active-white;
