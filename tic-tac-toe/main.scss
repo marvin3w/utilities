@@ -1,0 +1,142 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Vars
+$font-family: Arial, sans-serif;
+$background-color: #f3f3f3;
+$cell-border-color: #ccc;
+$player-x-color: orange;
+$player-o-color: blue;
+$winning-color: #d4edda;
+$button-color: #007bff;
+$button-hover-color: #0056b3;
+
+// Mixins
+@mixin transition($properties...) {
+  transition: $properties;
+}
+
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Global Styles
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  @include center-flex;
+  height: 100vh;
+  background-color: $background-color;
+}
+
+.container {
+  text-align: center;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+}
+
+// Board
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  margin: 20px auto;
+}
+
+// Board Cells
+.cell {
+  width: 100px;
+  height: 100px;
+  @include center-flex;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 2px solid $cell-border-color;
+  cursor: pointer;
+  @include transition(background-color 0.3s ease, transform 0.2s ease);
+
+  &.taken {
+    cursor: not-allowed;
+  }
+
+  &.x {
+    color: $player-x-color;
+  }
+
+  &.o {
+    color: $player-o-color;
+  }
+
+  &:hover {
+    background-color: lighten($background-color, 10%);
+  }
+}
+
+// Winner
+.winner {
+  background-color: $winning-color;
+  transform: scale(1.1);
+  @include transition(background-color 0.3s ease, transform 0.2s ease);
+}
+
+// Scoreboard
+.status, .scoreboard {
+  margin: 10px 0;
+
+  p {
+    margin: 5px 0;
+  }
+
+  #current-player {
+    font-weight: bold;
+  }
+}
+
+// Button
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: $button-color;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  @include transition(background-color 0.3s ease);
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+// Media Queries
+@mixin responsive($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@include responsive(768px) {
+  .board {
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 5px;
+  }
+
+  .cell {
+    width: 80px;
+    height: 80px;
+    font-size: 1.5rem;
+  }
+}
+
